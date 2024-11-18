@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luifer <luifer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lperez-h <lperez-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:21:04 by luifer            #+#    #+#             */
-/*   Updated: 2024/11/17 20:33:21 by luifer           ###   ########.fr       */
+/*   Updated: 2024/11/18 18:38:22 by lperez-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int Fixed::getRawBits(void) const{
 }
 
 //setter
-int Fixed::setRawBits(int const raw){
+void Fixed::setRawBits(int const raw){
     std::cout << BLUE << "setRawBits called:" << RESET << std::endl;
     this->num_value = raw;
 }
