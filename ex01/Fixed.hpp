@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luifer <luifer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lperez-h <lperez-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/17 19:48:58 by luifer            #+#    #+#             */
-/*   Updated: 2024/11/21 15:54:45 by luifer           ###   ########.fr       */
+/*   Created: 2024/11/18 18:54:22 by lperez-h          #+#    #+#             */
+/*   Updated: 2024/11/18 19:13:11 by lperez-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,21 @@
 # define FIXED_HPP
 
 #include <iostream>
-#include <string>
-
-#define BLUE "\e[1;94m"
-#define RED "\e[1;91m"
-#define RESET "\033[0m"
 
 class Fixed
 {
-    private:
+	private:
         int num_value;
-        static const int fractional = 8;
-
+        static const int fractional;
+	
+	//need to add here:
     public:
         Fixed();//constructor
         ~Fixed();//destructor
-        Fixed& operator = (const Fixed& entrada);//Copy assign operator
-        Fixed(const Fixed& entrada);//Copy constructor
+        Fixed& operator = (const Fixed& src);//Copy assign operator
+        Fixed(const Fixed& src);//Copy constructor
+		Fixed(const int& src);//Copy constructor
 
         int getRawBits(void) const;
         void setRawBits(int const raw);
-};
-
-#endif
+}
