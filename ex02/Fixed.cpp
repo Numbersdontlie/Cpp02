@@ -6,7 +6,7 @@
 /*   By: luifer <luifer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 22:48:31 by luifer            #+#    #+#             */
-/*   Updated: 2024/11/21 23:16:23 by luifer           ###   ########.fr       */
+/*   Updated: 2024/11/22 00:56:45 by luifer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Fixed::Fixed(const float num_float){
 //it creates a new object as a copy of an existing
 Fixed::Fixed(const Fixed &entrada){
     std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
-    *this = entrada;
+    pointValue = entrada.getRawBits();
 }
 
 //Copy assignment operator is used to copy the contents from an existing object
@@ -64,12 +64,12 @@ void Fixed::setRawBits(int const raw){
 
 //Convert fixed-point value to float
 float Fixed::toFloat(void) const{
-    return ((float)pointValue / (1 << fractional));
+    return ((float)this->pointValue / (1 << this->fractional));
 }
 
 //Convert fixed-point value to int
 int Fixed::toInt(void) const{
-    return (this->pointValue >> fractional);
+    return (this->pointValue >> this->fractional);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed){
@@ -78,54 +78,54 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed){
 }
 
 //Comparison operators
-bool Fixed::operator>(const Fixed& otro) const {return pointValue > otro.pointValue; }
-bool Fixed::operator<(const Fixed& otro) const {return pointValue < otro.pointValue; }
-bool Fixed::operator>=(const Fixed& otro) const {return pointValue >= otro.pointValue; }
-bool Fixed::operator<=(const Fixed& otro) const {return pointValue <= otro.pointValue; }
-bool Fixed::operator==(const Fixed& otro) const {return pointValue == otro.pointValue; }
-bool Fixed::operator!=(const Fixed& otro) const {return pointValue != otro.pointValue; }
+bool Fixed::operator>(const Fixed& otro) const {return this->pointValue > otro.getRawBits(); }
+bool Fixed::operator<(const Fixed& otro) const {return this->pointValue < otro.getRawBits(); }
+bool Fixed::operator>=(const Fixed& otro) const {return this->pointValue >= otro.getRawBits(); }
+bool Fixed::operator<=(const Fixed& otro) const {return this->pointValue <= otro.getRawBits(); }
+bool Fixed::operator==(const Fixed& otro) const {return this->pointValue == otro.getRawBits();}
+bool Fixed::operator!=(const Fixed& otro) const {return this->pointValue != otro.getRawBits(); }
 
 //Arithmetic operations
 Fixed Fixed::operator+(const Fixed& otro) const{
-    return (Fixed(toFloat() + otro.toFloat()));
+    return (Fixed(this->toFloat() + otro.toFloat()));
 }
 
 Fixed Fixed::operator-(const Fixed& otro) const{
-    return (Fixed(toFloat() - otro.toFloat()));
+    return (Fixed(this->toFloat() - otro.toFloat()));
 }
 
 Fixed Fixed::operator*(const Fixed& otro) const{
-    return (Fixed(toFloat() * otro.toFloat()));
+    return (Fixed(this->toFloat() * otro.toFloat()));
 }
 
 Fixed Fixed::operator/(const Fixed& otro) const{
     if (otro.pointValue == 0)
         std::cerr << RED << "Division by 0!"<< RESET << std::endl;
-    return (Fixed(toFloat() / otro.toFloat()));
+    return (Fixed(this->toFloat() / otro.toFloat()));
 }
 
 //Increase-decrease pre operators
 Fixed& Fixed::operator++(){
-    pointValue++;
+    this->pointValue++;
     return *this;
 }
 
 Fixed& Fixed::operator--(){
-    pointValue--;
+    this->pointValue--;
     return *this;
 }
 
 //Increase-decrease post operators
 Fixed& Fixed::operator++(int){
-    Fixed tmp = *this;
-    ++(*this);
-    return tmp;
+    Fixed tempI = *this;
+    this->pointValue++;
+    return tempI;
 }
 
 Fixed& Fixed::operator--(int){
-    Fixed tmp = *this;
-    --(*this);
-    return tmp;
+    Fixed tempD = *this;
+    this->pointValue--;
+    return tempD;
 }
 
 //Min and Max

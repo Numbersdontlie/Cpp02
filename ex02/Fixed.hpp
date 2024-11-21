@@ -6,7 +6,7 @@
 /*   By: luifer <luifer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 20:41:23 by luifer            #+#    #+#             */
-/*   Updated: 2024/11/21 23:16:25 by luifer           ###   ########.fr       */
+/*   Updated: 2024/11/22 00:54:07 by luifer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
+
+
+#define BLUE "\e[1;94m"
+#define RED "\e[1;91m"
+#define RESET "\033[0m"
 
 class Fixed
 {
@@ -29,10 +35,12 @@ class Fixed
         Fixed(const Fixed& entrada);//Copy constructor
         Fixed(const int num);//constructor that initialize to an integer
         Fixed(const float num_float);//constructor that initializes to a float
+        
         int getRawBits(void) const;
         void setRawBits(int const raw);
         float toFloat(void) const;
         int toInt(void) const;
+        
         //comparison
         bool operator>(const Fixed& otro) const;
         bool operator<(const Fixed& otro) const;
@@ -56,4 +64,9 @@ class Fixed
         static Fixed& max(Fixed& a, Fixed& b);
         static const Fixed& min(const Fixed& a, const Fixed& b);
         static const Fixed& max(const Fixed& a, const Fixed& b);
-}
+};
+
+//Overload for << operator
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
+
+#endif
