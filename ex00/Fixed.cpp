@@ -6,31 +6,30 @@
 /*   By: luifer <luifer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:21:04 by luifer            #+#    #+#             */
-/*   Updated: 2024/11/17 20:33:21 by luifer           ###   ########.fr       */
+/*   Updated: 2024/11/21 15:45:45 by luifer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-const int Fixed::fractional = 8;
-
 //Default constructor initializing numeric value to zero
-Fixed::Fixed(void): num_value(0){
+Fixed::Fixed(): num_value(0){
     std::cout << BLUE << "Default constructor called" << RESET << std::endl;
 }
 
-//The copy constructor create a new object as a copy of an existing object
-Fixed::Fixed(const Fixed &src){
+//The copy constructor copies the value of another object
+//it creates a new object as a copy of an existing
+Fixed::Fixed(const Fixed &entrada){
     std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
-    this->num_value = src.getRawBits();
+    this->num_value = entrada.getRawBits();
 }
 
 //Copy assignment operator is used to copy the contents from an existing object
 //to another existing object
-Fixed& Fixed::operator=(const Fixed &src){
+Fixed& Fixed::operator=(const Fixed &entrada){
     std::cout << BLUE << "Copy assignment operator have been called" << RESET << std::endl;
-    if(this != &src)
-        this->num_value = src.getRawBits();
+    if(this != &entrada)
+        this->num_value = entrada.getRawBits();
     return *this;
 }
 
@@ -41,12 +40,12 @@ Fixed::~Fixed(void){
 
 //getter
 int Fixed::getRawBits(void) const{
-    std::cout << "getRawBits called" << RESET << std::endl;
+    std::cout << BLUE << "getRawBits called:" << RESET << std::endl;
     return (this->num_value);
 }
 
 //setter
-int Fixed::setRawBits(int const raw){
+void Fixed::setRawBits(int const raw){
     std::cout << BLUE << "setRawBits called:" << RESET << std::endl;
     this->num_value = raw;
 }

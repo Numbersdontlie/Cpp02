@@ -6,7 +6,7 @@
 /*   By: luifer <luifer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:48:58 by luifer            #+#    #+#             */
-/*   Updated: 2024/11/17 20:33:23 by luifer           ###   ########.fr       */
+/*   Updated: 2024/11/21 15:44:02 by luifer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ class Fixed
 {
     private:
         int num_value;
-        static const int fractional;
+        static const int fractional = 8;
 
     public:
         Fixed();//constructor
         ~Fixed();//destructor
-        Fixed& operator = (const Fixed& src);//Copy assign operator
-        Fixed(const Fixed& src);//Copy constructor
+        Fixed& operator = (const Fixed& entrada);//Copy assign operator
+        Fixed(const Fixed& entrada);//Copy constructor
 
         int getRawBits(void) const;
         void setRawBits(int const raw);
