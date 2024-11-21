@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: luifer <luifer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 18:54:22 by lperez-h          #+#    #+#             */
-/*   Updated: 2024/11/21 20:41:06 by luifer           ###   ########.fr       */
+/*   Created: 2024/11/21 20:41:23 by luifer            #+#    #+#             */
+/*   Updated: 2024/11/21 21:21:33 by luifer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 
 #include <iostream>
 #include <string>
-#include <cmath>
-
-#define BLUE "\e[1;94m"
-#define RED "\e[1;91m"
-#define RESET "\033[0m"
 
 class Fixed
 {
@@ -38,9 +33,27 @@ class Fixed
         void setRawBits(int const raw);
         float toFloat(void) const;
         int toInt(void) const;
-};
-
-//Overload insertion operator for output
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
-
-#endif
+        //comparison
+        bool operator>(const Fixed& otro) const;
+        bool operator<(const Fixed& otro) const;
+        bool operator>=(const Fixed& otro) const;
+        bool operator<=(const Fixed& otro) const;
+        bool operator==(const Fixed& otro) const;
+        bool operator!=(const Fixed& otro) const;
+        //arihtmetic
+        Fixed operator+(const Fixed& other) const;
+        Fixed operator-(const Fixed& other) const;
+        Fixed operator*(const Fixed& other) const;
+        Fixed operator/(const Fixed& other) const;
+        //pre increase/decrease
+        Fixed& operator++();
+        Fixed& operator--();
+        //post increase/decrease
+        Fixed& operator++(int);
+        Fixed& operator--(int);
+        //static functions
+        static Fixed& min(Fixed& a, Fixed& b);
+        static Fixed& max(Fixed& a, Fixed& b);
+        static const Fixed& min(const Fixed& a, const Fixed& b);
+        static const Fixed& max(const Fixed& a, const Fixed& b);
+}
