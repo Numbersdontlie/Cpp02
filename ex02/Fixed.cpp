@@ -6,7 +6,7 @@
 /*   By: luifer <luifer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 22:48:31 by luifer            #+#    #+#             */
-/*   Updated: 2024/11/22 00:56:45 by luifer           ###   ########.fr       */
+/*   Updated: 2024/11/22 09:57:15 by luifer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,16 +116,20 @@ Fixed& Fixed::operator--(){
 }
 
 //Increase-decrease post operators
-Fixed& Fixed::operator++(int){
-    Fixed tempI = *this;
-    this->pointValue++;
-    return tempI;
+//Create a copy of current object tmp. increment the current object *this
+//the copy of temp is returned by value
+Fixed Fixed::operator++(int){
+    Fixed temp = *this;
+    //++(*this);
+    pointValue++;
+    return (temp);
 }
 
-Fixed& Fixed::operator--(int){
-    Fixed tempD = *this;
-    this->pointValue--;
-    return tempD;
+Fixed Fixed::operator--(int){
+    Fixed temp = *this;
+    //--(*this);
+    pointValue--;
+    return (temp);
 }
 
 //Min and Max

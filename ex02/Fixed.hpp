@@ -6,7 +6,7 @@
 /*   By: luifer <luifer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 20:41:23 by luifer            #+#    #+#             */
-/*   Updated: 2024/11/22 00:54:07 by luifer           ###   ########.fr       */
+/*   Updated: 2024/11/22 09:57:43 by luifer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ class Fixed
         Fixed& operator++();
         Fixed& operator--();
         //post increase/decrease
-        Fixed& operator++(int);
-        Fixed& operator--(int);
+        Fixed operator++(int);
+        Fixed operator--(int);
         //static functions
         static Fixed& min(Fixed& a, Fixed& b);
         static Fixed& max(Fixed& a, Fixed& b);
