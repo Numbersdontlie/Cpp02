@@ -6,7 +6,7 @@
 /*   By: luifer <luifer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:01:29 by luifer            #+#    #+#             */
-/*   Updated: 2024/11/22 10:01:51 by luifer           ###   ########.fr       */
+/*   Updated: 2024/11/22 13:33:31 by luifer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,32 @@
 
 //Default constructor initializing numeric value to zero
 Fixed::Fixed(): pointValue(0){
-    std::cout << BLUE << "Default constructor called" << RESET << std::endl;
+    //std::cout << BLUE << "Default constructor called" << RESET << std::endl;
 }
 
 //Default constructor initializing to int provided as input
 Fixed::Fixed(const int num){
-    std::cout << BLUE << "Integer constructor called" << RESET << std::endl;
+    //std::cout << BLUE << "Integer constructor called" << RESET << std::endl;
     this->pointValue = num << fractional;
 }
 
 //Default constructor initializing to float provided as input
 Fixed::Fixed(const float num_float){
-    std::cout << BLUE << "Float constructor called" << RESET << std::endl;
+    //std::cout << BLUE << "Float constructor called" << RESET << std::endl;
     this->pointValue = roundf(num_float * (1 << fractional));
 }
 
 //The copy constructor copies the value of another object
 //it creates a new object as a copy of an existing
 Fixed::Fixed(const Fixed &entrada){
-    std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
+    //std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
     pointValue = entrada.getRawBits();
 }
 
 //Copy assignment operator is used to copy the contents from an existing object
 //to another existing object
 Fixed& Fixed::operator=(const Fixed &entrada){
-    std::cout << BLUE << "Copy assignment operator have been called" << RESET << std::endl;
+    //std::cout << BLUE << "Copy assignment operator have been called" << RESET << std::endl;
     if(this != &entrada)
         this->pointValue = entrada.getRawBits();
     return *this;
@@ -47,18 +47,18 @@ Fixed& Fixed::operator=(const Fixed &entrada){
 
 //Destructor
 Fixed::~Fixed(void){
-    std::cout << RED << "Destructor have been called, Bye Bye object" << RESET << std::endl;
+    //std::cout << RED << "Destructor have been called, Bye Bye object" << RESET << std::endl;
 }
 
 //Getter
 int Fixed::getRawBits(void) const{
-    std::cout << BLUE << "getRawBits called:" << RESET << std::endl;
+    //std::cout << BLUE << "getRawBits called:" << RESET << std::endl;
     return (this->pointValue);
 }
 
 //Setter
 void Fixed::setRawBits(int const raw){
-    std::cout << BLUE << "setRawBits called:" << RESET << std::endl;
+    //std::cout << BLUE << "setRawBits called:" << RESET << std::endl;
     pointValue = raw;
 }
 

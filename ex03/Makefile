@@ -2,7 +2,7 @@ BLUE=\e[1;94m
 RED=\e[1;91m
 RESET=\033[0m
 
-NAME = talking
+NAME = bsp
 
 CC = c++
 
