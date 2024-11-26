@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luifer <luifer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lperez-h <lperez-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:28:14 by luifer            #+#    #+#             */
-/*   Updated: 2024/11/22 14:32:06 by luifer           ###   ########.fr       */
+/*   Updated: 2024/11/26 12:25:28 by lperez-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <cmath>
 
 #define BLUE "\e[1;94m"
+#define GREEN "\e[1;92m"
 #define RED "\e[1;91m"
 #define RESET "\033[0m"
 
@@ -39,6 +40,6 @@ class Point
         const Fixed& getY() const;
 };
 
-bool bsp(const Point& a, const Point& b, const Point& c, const Point& punto);
+bool bsp(Point const a, Point const b, Point const c, Point const punto);
 
 #endif

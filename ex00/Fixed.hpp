@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luifer <luifer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lperez-h <lperez-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:48:58 by luifer            #+#    #+#             */
-/*   Updated: 2024/11/21 15:54:45 by luifer           ###   ########.fr       */
+/*   Updated: 2024/11/26 12:01:34 by lperez-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Fixed
         static const int fractional = 8;
 
     public:
-        Fixed();//constructor
+        Fixed();//default constructor
         ~Fixed();//destructor
         Fixed& operator = (const Fixed& entrada);//Copy assign operator
         Fixed(const Fixed& entrada);//Copy constructor

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luifer <luifer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lperez-h <lperez-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 20:41:23 by luifer            #+#    #+#             */
-/*   Updated: 2024/11/22 09:57:43 by luifer           ###   ########.fr       */
+/*   Updated: 2024/11/26 12:09:03 by lperez-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 
 #define BLUE "\e[1;94m"
+#define GREEN "\e[1;92m"
 #define RED "\e[1;91m"
 #define RESET "\033[0m"
 

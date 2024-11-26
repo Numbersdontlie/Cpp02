@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luifer <luifer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lperez-h <lperez-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 23:16:28 by luifer            #+#    #+#             */
-/*   Updated: 2024/11/22 14:27:18 by luifer           ###   ########.fr       */
+/*   Updated: 2024/11/26 12:13:46 by lperez-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,29 @@ int main(void){
     std::cout << BLUE << a << RESET << std::endl;
 
     //comparison
-    std::cout << (a > b) << std::endl;
-    std::cout << (a >= b) << std::endl;
-    std::cout << (a < b) << std::endl;
-    std::cout << (a <= b) << std::endl;
-    std::cout << (a < c) << std::endl;
-    std::cout << (a <= c) << std::endl;
-    std::cout << (a > c) << std::endl;
-    std::cout << (a >= c) << std::endl;
-    std::cout << (b < c) << std::endl;
-    std::cout << (b > c) << std::endl;
+    std::cout << GREEN << (a > b) << RESET << std::endl;
+    std::cout << GREEN << (a >= b) << RESET << std::endl;
+    std::cout << GREEN << (a < b) << RESET << std::endl;
+    std::cout << GREEN << (a <= b) << RESET << std::endl;
+    std::cout << GREEN << (a < c) << RESET << std::endl;
+    std::cout << GREEN << (a <= c) << RESET << std::endl;
+    std::cout << GREEN << (a > c) << RESET << std::endl;
+    std::cout << GREEN << (a >= c) << RESET << std::endl;
+    std::cout << GREEN << (b < c) << RESET << std::endl;
+    std::cout << GREEN << (b > c) << RESET << std::endl;
+
+	//arithmetic
+	std::cout << GREEN << "sum is: " << (a + b) << RESET << std::endl;
+	std::cout << GREEN << "substract is: " << (a - b) << RESET << std::endl;
+	std::cout << GREEN << "multiplication is: " << (a * b) << RESET << std::endl;
+	std::cout << GREEN << "division is: " << (a / b) << RESET << std::endl;
 
     //Max and Min
-    std::cout << "Max:" << Fixed::max(a, b) << std::endl;
-    std::cout << "Min:" << Fixed::min(a, b) << std::endl;
-    std::cout << "Max:" << Fixed::max(b, c) << std::endl;
-    std::cout << "Min:" << Fixed::min(b, c) << std::endl;
-    std::cout << "Max:" << Fixed::max(a, c) << std::endl;
-    std::cout << "Min:" << Fixed::min(a, c) << std::endl;
+    std::cout << BLUE << "Max:" << Fixed::max(a, b) << RESET << std::endl;
+    std::cout << BLUE << "Min:" << Fixed::min(a, b) << RESET << std::endl;
+    std::cout << BLUE << "Max:" << Fixed::max(b, c) << RESET << std::endl;
+    std::cout << BLUE << "Min:" << Fixed::min(b, c) << RESET << std::endl;
+    std::cout << BLUE << "Max:" << Fixed::max(a, c) << RESET << std::endl;
+    std::cout << BLUE << "Min:" << Fixed::min(a, c) << RESET << std::endl;
     return(0);
 }
